@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PantherAI Prototype - Layout C</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #E7EAEF; font-family: 'IBM Plex Sans', sans-serif; }
+  .protonav {
+    background: #12213B; color: #fff; padding: 10px 20px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    font-size: 13px; position: sticky; top: 0; z-index: 50;
+  }
+  .protonav b { font-weight: 600; margin-right: 10px; }
+  .protonav a {
+    color: #D7DEE9; text-decoration: none; padding: 6px 12px;
+    border: 1px solid #38496A; border-radius: 4px;
+  }
+  .protonav a:hover { background: #1C2F4F; color: #fff; }
+  .protonav a.on { background: #B6862C; border-color: #B6862C; color: #141413; font-weight: 600; }
+  .stage { display: flex; justify-content: center; padding: 20px; }
+  .screen { box-shadow: 0 4px 24px rgba(8,30,63,.16); background: #fff; }
+  .modal-scrim {
+    display: none; position: fixed; inset: 0; background: rgba(8,30,63,.45);
+    z-index: 100; align-items: center; justify-content: center;
+  }
+  .modal-scrim.open { display: flex; }
+  .modal {
+    background: #fff; width: 460px; max-width: 92vw; border-radius: 10px;
+    padding: 24px 26px; font-size: 14px; color: #1C1F23;
+  }
+  .modal h2 { margin: 0 0 14px; font-size: 18px; }
+  .modal ul { margin: 0 0 18px; padding-left: 18px; line-height: 1.8; color: #343A42; }
+  .modal .row { display: flex; justify-content: flex-end; gap: 10px; }
+  .modal button {
+    font-family: inherit; font-size: 13px; padding: 0 18px; height: 40px;
+    border-radius: 4px; cursor: pointer;
+  }
+  .btn-ghost { background: #fff; border: 1px solid #C3CAD4; color: #1C1F23; }
+  .btn-primary { background: #081E3F; border: 1px solid #081E3F; color: #fff; font-weight: 600; }
+  .toast {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+    background: #081E3F; color: #fff; padding: 12px 22px; border-radius: 6px;
+    font-size: 13px; z-index: 110; display: none;
+  }
+  .toast.open { display: block; }
+</style>
+</head>
+<body>
+
+<nav class="protonav">
+  <b>FIU PantherAI prototype</b>
+  <a href="a.html">Layout A</a> <a href="index.html">Layout B</a> <a href="c.html" class="on">Layout C</a>
+</nav>
+
+<div class="stage">
+  <div class="screen">
+<div style="width: 1280px; height: 860px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'IBM Plex Sans', sans-serif; background: #F2F4F7; color: #1C1F23; overflow: hidden">
+
+  <div style="flex-shrink: 0; height: 64px; background: #081E3F; display: flex; align-items: center; padding: 0 24px; gap: 14px">
+    <div style="width: 38px; height: 38px; border-radius: 6px; background: #B6862C; display: flex; align-items: center; justify-content: center; color: #081E3F; font-weight: 700; font-size: 14px; letter-spacing: 0.02em">FIU</div>
+    <div style="color: #FFFFFF; font-size: 16px; font-weight: 600">PantherAI</div>
+    <div style="flex-grow: 1"></div>
+    <div style="text-align: right; line-height: 1.3">
+      <div style="color: #FFFFFF; font-size: 13px; font-weight: 500">Ronald Sierra</div>
+      <div style="color: #AEB9CC; font-size: 11px">Sep 30, 2026 at 9:42 PM</div>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; min-height: 0; display: flex; overflow: hidden">
+
+    <div style="flex-shrink: 0; width: 248px; background: #FFFFFF; border-right: 1px solid #E3E6EA; display: flex; flex-direction: column; overflow: hidden">
+      <div style="flex-shrink: 0; padding: 14px">
+        <button type="button" style="width: 100%; height: 44px; background: #081E3F; border: 1px solid #081E3F; border-radius: 4px; font-size: 13px; font-weight: 600; color: #FFFFFF">New session</button>
+      </div>
+      <div style="flex-shrink: 0; padding: 0 14px 8px; font-size: 10px; letter-spacing: 0.1em; color: #5A6372; font-weight: 600">SAVED SESSIONS</div>
+      <div style="flex-grow: 1; min-height: 0; padding: 0 10px; display: flex; flex-direction: column; gap: 4px; overflow: hidden">
+
+        <div style="padding: 10px 11px; border-radius: 5px; background: #EEF1F5; border-left: 3px solid #B6862C">
+          <div style="font-size: 12px; font-weight: 600; line-height: 1.4; color: #1C1F23">Brainstorming session for SE class</div>
+          <div style="font-size: 10px; color: #6B7280; margin-top: 3px">Sep 30 · 2 comments</div>
+        </div>
+        <div style="padding: 10px 11px; border-radius: 5px">
+          <div style="font-size: 12px; line-height: 1.4; color: #343A42">Rubric draft for group project</div>
+          <div style="font-size: 10px; color: #6B7280; margin-top: 3px">Sep 28</div>
+        </div>
+        <div style="padding: 10px 11px; border-radius: 5px">
+          <div style="font-size: 12px; line-height: 1.4; color: #343A42">Persona workshop outline</div>
+          <div style="font-size: 10px; color: #6B7280; margin-top: 3px">Sep 24</div>
+        </div>
+        <div style="padding: 10px 11px; border-radius: 5px">
+          <div style="font-size: 12px; line-height: 1.4; color: #343A42">Midterm review questions</div>
+          <div style="font-size: 10px; color: #6B7280; margin-top: 3px">Sep 19</div>
+        </div>
+
+      </div>
+      <div style="flex-shrink: 0; border-top: 1px solid #E3E6EA; padding: 12px 14px">
+        <div style="font-size: 10px; letter-spacing: 0.08em; color: #5A6372; font-weight: 600; margin-bottom: 7px">EXPORT AS</div>
+        <div style="display: flex; border: 1px solid #C3CAD4; border-radius: 4px; overflow: hidden; height: 44px">
+          <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #5A6372; border-right: 1px solid #E3E6EA">.txt</div>
+          <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #5A6372; border-right: 1px solid #E3E6EA">.docx</div>
+          <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #5A6372; border-right: 1px solid #E3E6EA">.csv</div>
+          <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #FFFFFF; background: #081E3F; font-weight: 600">.pdf</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; overflow: hidden">
+
+      <div style="flex-shrink: 0; background: #FFFFFF; border-bottom: 1px solid #E3E6EA; padding: 10px 24px; display: flex; align-items: center; gap: 16px">
+        <div style="flex-grow: 1; min-width: 0">
+          <div style="font-size: 10px; letter-spacing: 0.1em; color: #5A6372; font-weight: 600">PROMPT</div>
+          <div style="font-size: 13px; color: #1C1F23; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">I need to run a brainstorming session in my software engineering class to help student groups come up with app ideas.</div>
+        </div>
+        <button type="button" style="flex-shrink: 0; background: #081E3F; border: 1px solid #081E3F; border-radius: 4px; padding: 0 18px; height: 44px; font-size: 13px; font-weight: 600; color: #FFFFFF">Save session</button>
+      </div>
+
+      <div style="flex-grow: 1; min-height: 0; padding: 20px 24px; overflow: hidden">
+        <div style="background: #FFFFFF; border: 1px solid #E3E6EA; border-radius: 6px; padding: 22px 26px; height: 100%; box-sizing: border-box; overflow: hidden">
+          <div style="font-size: 16px; font-weight: 600; margin-bottom: 14px">Brainstorming session plan</div>
+          <div style="font-size: 13px; line-height: 1.75; color: #1C1F23">
+            <p style="margin: 0 0 12px"><strong style="font-weight: 600">1. Set the stage.</strong> Begin by explaining the purpose of the session and the importance of brainstorming in the app development process.</p>
+            <p style="margin: 0 0 12px"><strong style="font-weight: 600">2. Mind mapping.</strong> <span style="background: #F2E4C4">Have each group create a mind map starting with a central theme such as Health, Education or Entertainment.</span><sup style="color: #B6862C; font-weight: 700; font-size: 11px"> 1</sup> Encourage them to branch out with related ideas.</p>
+            <p style="margin: 0 0 12px"><strong style="font-weight: 600">3. SCAMPER method.</strong> Introduce the SCAMPER technique to help students think critically about existing apps and how they can innovate on them.</p>
+            <p style="margin: 0 0 12px"><strong style="font-weight: 600">4. Pitch preparation.</strong> Each group prepares a brief three to five minute pitch covering the problem, key features, target audience and unique selling points.<sup style="color: #B6862C; font-weight: 700; font-size: 11px"> 2</sup></p>
+            <p style="margin: 0"><strong style="font-weight: 600">5. Next steps.</strong> Discuss how they can move forward with their ideas, including research, prototyping and development phases.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex-shrink: 0; background: #FFFFFF; border-top: 1px solid #C3CAD4; box-shadow: 0 -4px 14px rgba(8, 30, 63, 0.08); padding: 14px 24px 16px; height: 212px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden">
+        <div style="flex-shrink: 0; display: flex; align-items: center; gap: 16px; margin-bottom: 11px">
+          <button type="button" style="background: none; border: none; padding: 0; font-size: 13px; font-weight: 600; color: #081E3F; border-bottom: 2px solid #B6862C; height: 26px">Comments (2)</button>
+          <button type="button" style="background: none; border: none; padding: 0; font-size: 13px; color: #5A6372; height: 26px">To do (3)</button>
+          <div style="flex-grow: 1"></div>
+          <button type="button" style="background: #FFFFFF; border: 1px solid #C3CAD4; border-radius: 4px; padding: 0 13px; height: 44px; font-size: 12px; color: #081E3F">Collapse drawer</button>
+        </div>
+        <div style="flex-grow: 1; min-height: 0; display: flex; gap: 12px; overflow: hidden">
+          <div style="flex-grow: 1; border: 1px solid #E8EBEF; border-left: 3px solid #B6862C; border-radius: 0 5px 5px 0; padding: 11px 13px">
+            <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 6px">
+              <div style="width: 18px; height: 18px; border-radius: 9px; background: #B6862C; color: #FFFFFF; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</div>
+              <div style="font-size: 11px; font-weight: 600">On section 2</div>
+            </div>
+            <div style="font-size: 12px; line-height: 1.55; color: #343A42">Set this up in GoFormative first with the main categories and a few blank bubbles ready to fill in.</div>
+          </div>
+          <div style="flex-grow: 1; border: 1px solid #E8EBEF; border-left: 3px solid #B6862C; border-radius: 0 5px 5px 0; padding: 11px 13px">
+            <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 6px">
+              <div style="width: 18px; height: 18px; border-radius: 9px; background: #B6862C; color: #FFFFFF; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</div>
+              <div style="font-size: 11px; font-weight: 600">On section 4</div>
+            </div>
+            <div style="font-size: 12px; line-height: 1.55; color: #343A42">Three to five minutes per group will not fit in one class. Switch to recorded pitch videos.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex-shrink: 0; background: #F7F8FA; border-top: 1px solid #E3E6EA; padding: 12px 24px; display: flex; align-items: center; gap: 10px">
+        <button type="button" style="background: #FFFFFF; border: 1px solid #081E3F; border-radius: 4px; padding: 0 16px; height: 44px; font-size: 13px; font-weight: 500; color: #081E3F">More detail</button>
+        <button type="button" style="background: #FFFFFF; border: 1px solid #081E3F; border-radius: 4px; padding: 0 16px; height: 44px; font-size: 13px; font-weight: 500; color: #081E3F">More general</button>
+        <label for="followupC" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Follow-up question</label>
+        <input id="followupC" type="text" placeholder="Ask a follow-up question" style="flex-grow: 1; box-sizing: border-box; height: 44px; border: 1px solid #C3CAD4; border-radius: 4px; padding: 0 12px; font-size: 13px; font-family: inherit; color: #1C1F23">
+        <button type="button" style="background: #081E3F; border: 1px solid #081E3F; border-radius: 4px; padding: 0 22px; height: 44px; font-size: 13px; font-weight: 600; color: #FFFFFF">Send</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+  </div>
+</div>
+
+<div class="modal-scrim" id="saveScrim">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Save session">
+    <h2>Save session</h2>
+    <ul>
+      <li>Username and session date/time</li>
+      <li>Original prompt and any follow-ups</li>
+      <li>2 highlights and 2 comments</li>
+      <li>3 To Do items</li>
+    </ul>
+    <div class="row">
+      <button class="btn-ghost" onclick="closeSave()">Cancel</button>
+      <button class="btn-primary" onclick="confirmSave()">Save as .pdf</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Session saved as PDF</div>
+
+<script>
+function closeSave() { document.getElementById('saveScrim').classList.remove('open'); }
+function confirmSave() {
+  closeSave();
+  var t = document.getElementById('toast');
+  t.classList.add('open');
+  setTimeout(function () { t.classList.remove('open'); }, 2200);
+}
+document.querySelectorAll('button').forEach(function (b) {
+  var label = (b.textContent || '').trim().toLowerCase();
+  if (label === 'save session') {
+    b.addEventListener('click', function () {
+      document.getElementById('saveScrim').classList.add('open');
+    });
+  }
+  if (label === 'new session') {
+    b.addEventListener('click', function () { window.location.href = 'index.html'; });
+  }
+});
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSave(); });
+</script>
+
+</body>
+</html>
